@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Sweet Heart ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg,rgba(255,117,140,0.7),rgba(255,126,179,0.7)), url('images/StockCake-Lavender_Field_Sunset-1162314-medium.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:white;
+    text-align:center;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+h1,h2{
+    font-family:'Montserrat', 'Inter', Arial, sans-serif;
+    letter-spacing:0.03em;
+}
+
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4e73;
+    font-family:'Inter', Arial, sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* QUESTION PAGE */
+.question-page{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    display:none;
+}
+
+.question-page h2{
+    font-size:1.7rem;
+    margin-bottom:18px;
+}
+
+.question-page p{
+    font-size:0.95rem;
+    max-width:360px;
+    line-height:1.6;
+    margin:0 auto 20px;
+}
+
+.options{
+    display:flex;
+    gap:15px;
+}
+
+.options button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4e73;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.box-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.magic-box{
+    width:160px;
+    min-height:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background: rgba(255, 255, 255, 0.95);
+    color:#ff4e73;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    font-weight:bold;
+    cursor:pointer;
+    transition:transform 0.25s, box-shadow 0.25s;
+}
+
+.magic-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 24px rgba(0,0,0,0.18);
+}
+
+.hero h1{
+    font-size:3rem;
+    text-shadow: 0 0 15px rgba(255,255,255,0.7);
+}
+
+/* BUTTON */
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4e73;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SECTION */
+.section{
+    padding:20px 20px;
+}
+
+/* TEXT BOX */
+.text-box{
+    padding:15px;
+    background: rgba(148, 144, 144, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin:10px 0;
+}
+
+/* CONTENT */
+.content{
+    display:none;
+    flex:1 1 auto;
+    min-height:0;
+    overflow:auto;
+    flex-direction:column;
+}
+
+/* GALLERY */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.photo-card{
+    width:250px;
+    background: rgba(255,255,255,0.95);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+    color:#333;
+    text-align:left;
+}
+
+.photo-card img{
+    width:100%;
+    display:block;
+}
+
+.photo-caption{
+    padding:15px;
+    font-family:'Inter', Arial, sans-serif;
+    font-size:0.95rem;
+    line-height:1.5;
+    min-height:90px;
+}
+
+.gallery img:hover{
+    transform:none;
+}
+
+/* TIMER */
+.timer{
+    font-size:1.5rem;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    color:#ff4e73;
+    padding:20px;
+    border-radius:20px;
+    display:none;
+    max-width: 400px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* HEARTS */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    animation:floatUp 5s linear infinite;
+}
+
+.sparkle{
+    position:fixed;
+    bottom:-10px;
+    animation:floatUp 6s linear infinite;
+    font-size:1.2rem;
+}
+
+.flower{
+    position:fixed;
+    bottom:-10px;
+    animation:floatUp 8s linear infinite;
+    font-size:1.3rem;
+}
+
+.bird{
+    position:absolute;
+    top:20%;
+    animation:fly 10s linear infinite;
+    font-size:1.5rem;
+}
+
+@keyframes fly{
+    0%{transform:translateX(-100vw);}
+    100%{transform:translateX(100vw);}
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" src="song.mp3" loop></audio>
+
+<div class="hero">
+    <h1>Welcome Sweet Heart ❤️</h1>
+    <p>My Life Changed When I Met You 💕 Thank you for being my everything, Prekshuu ✨</p>
+    <button class="btn" onclick="startQuiz()">Let's Go Prekshuu 💖</button>
+</div>
+
+<!-- QUESTION PAGES -->
+<div class="question-page" id="intro">
+    <h2>Here are some questions that show how much you love me 💖✨</h2>
+    <button class="btn" onclick="startQuestions()">Start Quiz 💌</button>
+</div>
+
+<div class="question-page" id="q1">
+    <h2>Who was proposed first? 💍</h2>
+    <div class="options">
+        <button onclick="answerQ1('me')">Me</button>
+        <button onclick="answerQ1('him')">Him</button>
+    </div>
+</div>
+
+<div class="question-page" id="q2">
+    <h2>Do you really miss me when you go village? 🏠</h2>
+    <div class="options">
+        <button onclick="answerQ2('yes')">Yes</button>
+        <button onclick="answerQ2('no')">No</button>
+    </div>
+</div>
+
+<div class="question-page" id="q3">
+    <h2>How was this 1year journey? 🌟</h2>
+    <div class="options">
+        <button onclick="answerQ3('amazing')">Amazing</button>
+        <button onclick="answerQ3('wonderful')">Wonderful</button>
+        <button onclick="answerQ3('incredible')">Incredible</button>
+    </div>
+</div>
+
+<div class="question-page" id="q3result">
+    <h2>Your answer is beautiful 💌</h2>
+    <p id="q3message" style="font-size:1.2rem; margin:20px 0;"></p>
+    <button class="btn" onclick="continueToQ4()">Continue</button>
+</div>
+
+<div class="question-page" id="q4">
+    <h2>Choose a surprise box 💌✨</h2>
+    <div class="box-row">
+        <div class="magic-box" onclick="openLetter()">Letter for you 💌</div>
+        <div class="magic-box" onclick="showMemories()">Sweet Memories 🌸</div>
+        <div class="magic-box" onclick="showMoments()">Our Moments ✨</div>
+        <div class="magic-box" onclick="showQuotes()">Forever Together 💕</div>
+    </div>
+</div>
+
+<div class="content">
+<div class="section" id="journeySection">
+    <h2>Our Journey 💖</h2>
+    <div class="text-box" style="display:none;">
+        <p>
+            Thank you for being with me for one year and happy 1 year of our relationship, my lovely Prekshu 💫<br>
+            Every moment with you is special, dreamy, and filled with love ❤️
+        </p>
+    </div>
+</div>
+
+<div class="section" id="memoriesSection">
+    <h2>Our Memories 📸</h2>
+    <div class="text-box">
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="images/image1.jpeg" alt="Memory photo 1">
+                <div class="photo-caption">Our first date - the moment I knew you were special. Every smile, every laugh, made my heart skip a beat. 💕</div>
+            </div>
+            <div class="photo-card">
+                <img src="images/image2.jpeg" alt="Memory photo 2">
+                <div class="photo-caption">In that day, wrapped in tradition,
+I found my favorite place—next to you ✨</div>
+            </div>
+            <div class="photo-card">
+                <img src="images/image3.jpeg" alt="Memory photo 3">
+                <div class="photo-caption">Holding hands and dreaming of forever. With you, every moment feels like home. ❤️</div>
+            </div>
+        </div>
+        <button class="btn" onclick="goBack()">Back</button>
+    </div>
+</div>
+
+<div class="section" id="momentsSection">
+    <h2>Our Moments ✨</h2>
+    <div class="text-box">
+        <p>“One year, one love,
+and a million memories.
+From little moments to big smiles,
+you made everything special.
+If this is just the beginning,
+I can’t wait for forever with you” 💕</p>
+        <video controls width="80%" style="max-width:400px;">
+            <source src="images/WhatsApp Video 2026-04-25 at 10.00.48 PM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="btn" onclick="goBack()">Back</button>
+    </div>
+</div>
+
+<div class="section" id="timeSection">
+    <h2>Time Together ⏳</h2>
+    <div class="text-box">
+        <div class="timer" id="timer"></div>
+    </div>
+</div>
+
+<div class="section" id="quotesSection">
+    <h2>Love Quotes 💕</h2>
+    <div class="text-box">
+“Forever with you,
+that’s all I ever need.
+Holding your hand,
+walking through every moment.
+No matter what changes,
+my love for you stays the same.”
+        <button class="btn" onclick="goBack()">Back</button>
+    </div>
+</div>
+
+<div class="section" id="letterSection">
+    <div class="text-box">
+        <button class="btn" onclick="openLetter()">Open Love Letter 💌</button>
+    </div>
+</div>
+</div>
+
+<!-- POPUP LETTER -->
+<div class="popup" id="letter">
+    <h2>My Love ❤️</h2>
+    <p>
+        Welcome inside, my sweet heart Prekshu 💕<br>
+        Thank you for this amazing year. I love you forever ❤️<br><br>
+        
+        My dearest Prekshu,<br><br>
+        
+        As I sit here thinking about us, my heart overflows with gratitude and love. This past year has been the most beautiful journey of my life, filled with moments that I'll cherish forever. From our first hello to every "I love you," you've made my world brighter in ways I never imagined possible.<br><br>
+        
+        Your smile lights up my darkest days, your laughter is my favorite melody, and your love is my greatest treasure. You've taught me what it means to truly care for someone, to support their dreams, and to grow together through every challenge.<br><br>
+        
+        I promise to always be there for you, to hold your hand through storms and celebrate with you in sunshine. You're not just my love, you're my best friend, my confidant, my everything.<br><br>
+        
+        Happy 1 Year Anniversary, my sweet heart. Here's to many more years of love, laughter, and unforgettable memories. I love you more than words can express. 💖✨<br><br>
+        
+        Forever yours,<br>
+        Your Love ❤️
+    </p>
+    <button class="btn" onclick="closeLetter()">Close</button>
+</div>
+
+<script>
+// MUSIC
+function startMusic(){
+    document.getElementById("music").play();
+}
+
+// LOVE TIMER (EDIT DATE)
+const startDate = new Date("2025-04-25");
+
+function updateTimer(){
+    const now = new Date();
+    const diff = now - startDate;
+
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff/(1000*60*60))%24);
+    const m = Math.floor((diff/(1000*60))%60);
+    const s = Math.floor((diff/1000)%60);
+
+    document.getElementById("timer").innerHTML =
+        d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds ❤️";
+}
+
+setInterval(updateTimer,1000);
+
+// LETTER
+function openLetter(){
+    document.getElementById("letter").style.display="block";
+}
+
+function closeLetter(){
+    document.getElementById("letter").style.display="none";
+}
+
+// QUIZ
+function startQuiz(){
+    document.querySelector('.hero').style.display = 'none';
+    document.getElementById('intro').style.display = 'flex';
+}
+
+function startQuestions(){
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('q1').style.display = 'flex';
+}
+
+function answerQ1(answer){
+    if (answer === 'me') {
+        document.getElementById('q1').style.display = 'none';
+        document.getElementById('q2').style.display = 'flex';
+    } else {
+        alert('Wrong answer! Try again ❤️');
+    }
+}
+
+function answerQ2(answer){
+    // Her choice, accept any
+    document.getElementById('q2').style.display = 'none';
+    document.getElementById('q3').style.display = 'flex';
+}
+
+function answerQ3(answer){
+    if (['amazing', 'wonderful', 'incredible'].includes(answer)) {
+        document.getElementById('q3').style.display = 'none';
+        document.getElementById('q3message').innerText =
+            `You chose "${answer.charAt(0).toUpperCase() + answer.slice(1)}" — our journey was truly special. ❤️`;
+        document.getElementById('q3result').style.display = 'flex';
+    } else {
+        alert('Please choose one of the options! ❤️');
+    }
+}
+
+function continueToQ4(){
+    document.getElementById('q3result').style.display = 'none';
+    document.getElementById('q4').style.display = 'flex';
+}
+
+function answerQ4(answer){
+    // no longer used for the final box page
+}
+
+function showMemories(){
+    document.getElementById('q4').style.display = 'none';
+    const content = document.querySelector('.content');
+    content.style.display = 'flex';
+    document.getElementById('journeySection').style.display = 'none';
+    document.getElementById('memoriesSection').style.display = 'block';
+    document.getElementById('momentsSection').style.display = 'none';
+    document.getElementById('timeSection').style.display = 'none';
+    document.getElementById('letterSection').style.display = 'none';
+    startMusic();
+    const memoriesSection = document.getElementById('memoriesSection');
+    if (memoriesSection) {
+        memoriesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function showMoments(){
+    document.getElementById('q4').style.display = 'none';
+    const content = document.querySelector('.content');
+    content.style.display = 'flex';
+    document.getElementById('journeySection').style.display = 'none';
+    document.getElementById('memoriesSection').style.display = 'none';
+    document.getElementById('momentsSection').style.display = 'block';
+    document.getElementById('timeSection').style.display = 'none';
+    document.getElementById('letterSection').style.display = 'none';
+    document.getElementById('quotesSection').style.display = 'none';
+    startMusic();
+    const momentsSection = document.getElementById('momentsSection');
+    if (momentsSection) {
+        momentsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function showQuotes(){
+    document.getElementById('q4').style.display = 'none';
+    const content = document.querySelector('.content');
+    content.style.display = 'flex';
+    document.getElementById('journeySection').style.display = 'none';
+    document.getElementById('memoriesSection').style.display = 'none';
+    document.getElementById('momentsSection').style.display = 'none';
+    document.getElementById('timeSection').style.display = 'none';
+    document.getElementById('letterSection').style.display = 'none';
+    document.getElementById('quotesSection').style.display = 'block';
+    startMusic();
+    const quotesSection = document.getElementById('quotesSection');
+    if (quotesSection) {
+        quotesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function goBack(){
+    document.querySelector('.content').style.display = 'none';
+    document.getElementById('q4').style.display = 'flex';
+}
+
+
+// HEARTS
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,300);
+
+// SPARKLES
+function createSparkle(){
+    const sparkle=document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.innerHTML="✨";
+    sparkle.style.left=Math.random()*100+"vw";
+    document.body.appendChild(sparkle);
+
+    setTimeout(()=>sparkle.remove(),6000);
+}
+setInterval(createSparkle,500);
+
+// FLOWERS
+function createFlower(){
+    const flower=document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerHTML="🌸";
+    flower.style.left=Math.random()*100+"vw";
+    document.body.appendChild(flower);
+
+    setTimeout(()=>flower.remove(),8000);
+}
+setInterval(createFlower,1200);
+
+
+</script>
+
+</body>
+</html>
